@@ -8,7 +8,7 @@
 //              Global variables
 var seconds = 0;
 var currentNode;
-
+var loggedIn = false;
 //              Functions
 
 // Ran when a page is loaded it populates the the page with the correct data
@@ -189,6 +189,45 @@ function contactPage()
     button.addEventListener( "click", displayContact, false );
 
 }
+
+// Function ran when the user clicks on login on the login page
+function login()
+{
+    // Adds the username to the nav bar
+    $(document).ready(function()
+    {
+        // Variable for holding the current username in username input
+        var loginUserName = $("#loginUsername").val().trim();
+        // Variable for hodling the current password in passsword input
+        var loginPassword = $("#loginPassword").val().trim();
+        // Checks that both inputs are not empty
+        if(loginUserName == "" || loginPassword == "")
+        {
+            // Error message for blank input
+            alert("Email and or password cannot be blank!");
+        }
+        else
+        {
+            // Checks that the user hasnt logged in already
+            if(loggedIn == false)
+            {
+                // Adds the username from the input to the nav bar
+                $("#login").after('<li id ="displayUsername"><a><i class="fa-solid fa-person"></i>' + loginUserName + '</a></li>');
+                // Sets loggedIn to true to stop creation of more username displays
+                loggedIn = true;
+            }
+            else
+            {
+                // Error for user already beeing logged in
+                alert("You have already logged in");
+            }
+            
+        }
+    })
+    
+
+}
+
 // Displays the contact in the console
 function displayContact()
 {
