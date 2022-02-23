@@ -69,6 +69,10 @@ function checkPage()
     {
         contactPage();
     }
+    else if (page == "register.html")
+    {
+        registerPage();
+    }
     
 }
 
@@ -190,6 +194,14 @@ function contactPage()
 
 }
 
+
+// Builds the register page when the page opens
+function registerPage()
+{
+    // Adds a hidden error message div
+    $("#buttons").after('<div id="ErrorMessage"></div>');
+}
+
 // Function ran when the user clicks on login on the login page
 function login()
 {
@@ -225,6 +237,75 @@ function login()
         }
     })
     
+
+}
+
+// Function that runs when the user clicks the register button (TO FINISH)
+function register()
+{
+    // Variable for collecting errors
+    var errors = "";
+
+    // Collects the data in the form
+    
+    // validates firstname
+    if($("#firstName").val().length >= 2)
+    {
+        // first name valid
+    }
+    else
+    {
+        // first name not greater then or equal to 2 in length
+    }
+    // Validates last name
+    if($("#lastName").val().length >= 2)
+    {
+        // Last name valid
+    }
+    else
+    {
+        // last name is not greater then or equal to 2 in length
+    }
+    // Validates email
+    if($("#email"))
+    {
+
+    }
+    else
+    {
+
+    }
+    // Validates password
+    if($("#password").val() == $("#confirmPassword").val()) // This line here is broken
+    {
+        if($("#password").val().length >= 6 )
+        {
+            // password and confirm password are valid
+            alert("passwords valid"); // testing stuff
+
+        }
+        else
+        {
+            alert("passwords invalid length"); // testing stuff
+            // passwords are not greater then or equal to 6 in length
+        }
+    }
+    else
+    {
+        alert("passwords invalid do not match"); // testing stuff
+        // passwords do not match
+    }
+    
+    // outputs errors if any
+    if(errors == "")
+    {
+        // No errors
+    }
+    else
+    {
+        // Errors
+    }
+
 
 }
 
