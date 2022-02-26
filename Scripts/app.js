@@ -1,7 +1,7 @@
 /*  Authors: Tyler Osborne & Tyler Henry
 *   Student IDs: 100757532 & 100593023
-*   Version: Lab 1
-*   Date Completed: 2022-02-10
+*   Version: Lab 2
+*   Date Completed: 2022-02-26
 *   Description: This javascript populates the webpages with information
 */
 
@@ -268,11 +268,11 @@ function register()
     {
         errors += "Email needs to be 8 or more characters\n";
     }
-    else if(!($("#email").val().includes("@"))) // TO FIX
+    else if(!($("#email").val().includes("@")))
     {
         errors += "Please enter a valid email\n";
     }
-
+    // Validates password and confirm password
     if($("#password").val().length < 6 )
     {
         errors += "The password needs to be 6 or more characters\n";
@@ -287,6 +287,7 @@ function register()
     {   
         document.getElementById("ErrorMessage").innerText=errors; 
     }
+    // Creates a user and outputs the details of said user to the console
     else
     {
         const user = new User($("#firstName").val(),$("#lastName").val(),$("#email").val(),$("#email").val(),$("#password").val());

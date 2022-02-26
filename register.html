@@ -1,10 +1,9 @@
 <!--
    Authors: Tyler Osborne & Tyler Henry
    Student ID: 100757532 & 100593023
-   Date Completed: 2022-02-09
+   Date Completed: 2022-02-26
    Description: 
-      This is the about pages that contains details
-      on the authors of this project.
+      This is the register page for new users
 -->
 <!DOCTYPE html>
 <html>
@@ -32,30 +31,37 @@
       <div id = "links"></div>
       <!--Content-->
       <h1>Register</h1>
+      <!--Register form-->
       <form>
         <p>
+            <!--First Name-->
             <label for="firstName">First Name</label>
             <input id="firstName" placeholder="Enter your first name"> 
         </p>
         <p>
+            <!--Last Name-->
             <label for="lastName">Last Name</label>
             <input id="lastName" placeholder="Enter your last name">
         </p>
         <p>
+            <!--Email-->
             <label for="email">Email Address</label>
             <input id="email" placeholder="Enter your email">
         </p>
         <p>
+            <!--Password-->
             <label for="password">Password</label>
             <input id="password" placeholder="Enter your password">
         </p>
         <p>
+            <!--Confirm password-->
             <label for="confirmPassword">Confirm Password</label>
             <input id="confirmPassword" placeholder="Re-enter your password">
         </p>
 
         <h4>Already have an account? <a href="login.html" >Sign in</a></h4>
       </form>
+      <!--Register button-->
       <p id = "buttons">
           <button id="register" onclick="register()">Register</button>
       </p>
