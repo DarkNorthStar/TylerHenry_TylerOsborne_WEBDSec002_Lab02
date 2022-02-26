@@ -14,6 +14,7 @@ var loggedIn = false;
 // Ran when a page is loaded it populates the the page with the correct data
 function checkPage()
 {
+    
     //Changes product link to projects using DOM
     currentNode = document.getElementById( "products" );
     currentNode.innerHTML =`<li id ="products"><a href="products.html">
@@ -32,20 +33,6 @@ function checkPage()
     newA.prepend(newI);
     newNavLink.appendChild(newA);
 
-    // Adds new human resoursces link to nav bar
-    currentNode.insertBefore(newNavLink, currentNode.childNodes[4]);
-        // Finds the nav and sets it to the current node
-    currentNode = document.getElementById("nav");
-    // Creates the humanresources link to append
-    var newNavLink = document.createElement("li");
-    var newA = document.createElement("a");
-    var newI=document.createElement("i");
-    newA.setAttribute("id", "humanresources");
-    newA.setAttribute("href", "humanresources.html");
-    newI.setAttribute("class", "fas fa-user-tie");
-    newA.textContent =" Human Resources";
-    newA.prepend(newI);
-    newNavLink.appendChild(newA);
 
     // Adds new human resoursces link to nav bar
     currentNode.insertBefore(newNavLink, currentNode.childNodes[4]);
@@ -261,49 +248,51 @@ function register()
     // Variable for collecting errors
     var errors = "";
 
+    document.getElementById("ErrorMessage").innerText ="";
     // Collects the data in the form
     
     // validates firstname
     if($("#firstName").val().length < 2)
     {
-        error += "First name needs to be 2 or more characters\n";
+        errors += "First name needs to be 2 or more characters\n";
     }
     // Validates last name
     if($("#lastName").val().length < 2)
     {
-        error += "Last name needs to be 2 or more characters\n";
+        errors += "Last name needs to be 2 or more characters\n";
     }
     // Validates email
     if($("#email").val().length < 8)
     {
-        error += "Email needs to be 8 or more characters\n";
+        errors += "Email needs to be 8 or more characters\n";
     }
-    else if(!($("#email").val().contains("@")))
+    else if(!($("#email").val().includes("@")))
     {
-        error += "Email needs to be 8 or more characters\n";
+        errors += "Please enter a valid email\n";
     }
-    // Validates password
-    if($("#password").val() == $("#confirmPassword").val()) // This line here is broken
-    {
 
-    }
     if($("#password").val().length < 6 )
     {
-        error += "The password needs to be 6 or more characters\n";
+        errors += "The password needs to be 6 or more characters\n";
     }
-    else if($("#password").val() != $("#confirmPassword").val())
+    else if($("#password").val() !=  $("#confirmPassword").val())
     {
-        error += "Confirm password in different then password\n";
+        errors += "Confirm password must match password\n";
     }
     
     // outputs errors if any
-    if(errors == "")
-    {
-        // No errors
+    if(errors != "")
+    {   
+        document.getElementById("ErrorMessage").innerText=errors; 
     }
     else
     {
-        error.innerHTML = errors;
+        const user = new User($("#firstName").val(),$("#lastName").val(),$("#email").val(),$("#email").val(),$("#password").val());
+        console.log(user.getFirstName);
+        console.log(user.getLastName);
+        console.log(user.getUsername);
+        console.log(user.getEmail);
+        console.log(user.getPassword);
     }
 
 
