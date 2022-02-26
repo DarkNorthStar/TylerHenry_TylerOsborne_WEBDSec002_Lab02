@@ -296,6 +296,13 @@ function register()
         console.log(user.getUsername);
         console.log(user.getEmail);
         console.log(user.getPassword);
+
+        // Clears inputs
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#email").val("");
+        $("#password").val("");
+        $("#confirmPassword").val("");
     }
 
 
