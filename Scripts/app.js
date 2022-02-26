@@ -250,6 +250,8 @@ function register()
 
     document.getElementById("ErrorMessage").innerText ="";
     // Collects the data in the form
+    var password = $("#password").val().trim();
+    var confirmPassword = $("#confirmPassword").val().trim();
     
     // validates firstname
     if($("#firstName").val().length < 2)
@@ -266,7 +268,7 @@ function register()
     {
         errors += "Email needs to be 8 or more characters\n";
     }
-    else if(!($("#email").val().includes("@")))
+    else if(!($("#email").val().includes("@"))) // TO FIX
     {
         errors += "Please enter a valid email\n";
     }
@@ -275,7 +277,7 @@ function register()
     {
         errors += "The password needs to be 6 or more characters\n";
     }
-    else if($("#password").val() !=  $("#confirmPassword").val())
+    else if(password != confirmPassword)
     {
         errors += "Confirm password must match password\n";
     }
