@@ -228,6 +228,9 @@ function login()
                 $("#login").after('<li id ="displayUsername"><a><i class="fa-solid fa-person"></i>' + loginUserName + '</a></li>');
                 // Sets loggedIn to true to stop creation of more username displays
                 loggedIn = true;
+
+                // Changes login to be log out
+                $("#loginText").text("Logout");
                 
             }
             else
